@@ -170,13 +170,6 @@ Current work focuses on:
 
 ---
 
-## Paper
-
-See:
-- `paper/BCYX.pdf`
-
----
-
 ## References
 
 - Accumulate Network Whitepaper
@@ -188,10 +181,4 @@ See:
 
 ---
 
-## Tagline
-
-```txt
-Cold Storage.
-Hot Coordination.
-Zero Compromise.
-```
+Keywords: Bitcoin-native, Atomic settlement, Shielded coordination, Verifiable privacy
