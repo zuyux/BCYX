@@ -1,163 +1,358 @@
-# 🌀 BitDMX Core  
-**Next-generation Bitcoin zk-Rollup powered by STARKs and BitVMX principles**
+# BCYX
+
+> Privacy-first cross-chain coordination and settlement infrastructure.
+
+## Overview
+
+BCYX is a privacy-first cross-chain coordination and settlement protocol designed to enable confidential interoperability, selective disclosure, and verifiable execution across heterogeneous blockchain systems.
+
+The protocol introduces a modular coordination architecture where transactions, swaps, and settlement intents are abstracted through cryptographic commitments and validated using aggregated Zero-Knowledge Proofs. Instead of exposing transaction graphs, counterparties, routing paths, or execution logic, BCYX separates public verification from private coordination through shielded execution environments and accumulator-based proof systems.
+
+The initial BCYX pilot focuses on validating the protocol as a confidential swap coordination mechanism, enabling atomic cross-chain settlement while preserving ownership privacy and minimizing on-chain verification overhead through batched proof aggregation. The architecture leverages commitment trees, nullifier systems, shielded coordination pools, and modular verification layers to coordinate settlement across heterogeneous chains without requiring transparent execution flows.
+
+BCYX is designed as a generalized coordination layer rather than a conventional bridge or messaging protocol. The system supports private treasury coordination, confidential interoperability, oracle attestation systems, institutional settlement flows, and programmable selective disclosure policies. By aggregating commitments and execution proofs into compressed verification roots, BCYX reduces synchronization complexity while enabling scalable cross-chain coordination.
+
+The pilot focuses on:
+- shielded coordination,
+- commitment-based execution,
+- aggregated proof verification,
+- batched settlement coordination,
+- and private cross-chain swap orchestration.
+
+The objective is to validate BCYX as:
+- a modular coordination layer,
+- not simply a bridge,
+- not a generalized messaging protocol,
+- but a privacy-first settlement fabric.
 
 ---
 
-## 🌍 Overview
-BitDMX is a Bitcoin-native zero-knowledge rollup framework designed to extend Bitcoin’s scalability and programmability — **without relying on Ethereum**.  
-It leverages **STARK proofs** for transparent, quantum-resistant verification and builds its bridge directly on Bitcoin using **Taproot scripts and BitVMX-style challenge games**.
+# Core Thesis
 
-This repository (`bitdmx-core`) contains the core runtime, proof engine, and integration layer for the BitDMX ecosystem.
+Current interoperability systems expose:
+- transaction graphs,
+- treasury allocations,
+- routing paths,
+- counterparties,
+- and settlement metadata.
 
----
+BCYX introduces a coordination architecture where:
+- settlement remains publicly verifiable,
+- while execution logic and ownership remain private.
 
-## 🧩 Key Components
-
-| Layer | Description |
-|-------|--------------|
-| **Protocol** | STARK proof engine, zkVM runtime, recursive proof compression |
-| **Backend** | Rollup node, state tree management, proof aggregation daemon |
-| **Integration** | Taproot bridge templates, UTXO tracking, and dispute protocol |
-| **Frontend** | Web portal and explorer for proofs, transactions, and stats |
-| **Design** | Brand identity, UX flows, and investor dashboard visualization |
-| **Research** | Cryptographic analysis, performance benchmarking, and protocol review |
-
----
-
-## 🚀 Architecture Overview
-
-     ┌────────────────────────────┐
-     │      Bitcoin Layer         │
-     │  Taproot + BitVMX Scripts  │
-     └───────────┬────────────────┘
-                 │
-       Commitments (STARK Roots)
-                 │
-     ┌───────────┴────────────────┐
-     │       BitDMX Rollup        │
-     │ - zkVM Runtime (Binius)    │
-     │ - Recursive STARKs         │
-     │ - Proof Aggregator         │
-     └───────────┬────────────────┘
-                 │
-       REST + JSON-RPC APIs
-                 │
-     ┌───────────┴────────────────┐
-     │  Web Portal + Explorer     │
-     │  User, Dev, & Investor UI  │
-     └────────────────────────────┘
+```txt
+Public verification.
+Private coordination.
+```
 
 ---
 
-## 📦 Repository Structure
-bitdmx-core/
-├── protocol/ # STARK engine and zkVM runtime
-├── backend/ # Rollup node and aggregator
-├── integration/ # Taproot bridge modules
-├── frontend/ # React web portal
-├── design/ # UI/UX, brand assets
-├── research/ # Papers, benchmarks, metrics
-└── .project/ # GitHub Project JSONs for Kanban
+# Pilot Scope
+
+The first BCYX pilot tests:
+- confidential swap coordination,
+- private settlement orchestration,
+- batched proof verification,
+- and accumulator-based execution flows.
+
+The pilot is intentionally narrow in scope to validate:
+1. coordination primitives,
+2. proof aggregation,
+3. shielded settlement execution,
+4. and cross-chain synchronization logic.
 
 ---
 
-## 🗂️ Project Management
+# Initial Use Case
 
-We use **GitHub Projects (Kanban)** for cross-team coordination.  
-Each department maintains its own task board using JSON import files stored under `.project/`.
+## Private Atomic Swap Coordination
 
-**Columns:**  
-`Backlog → In Progress → Review → Done → Research`
+The first BCYX implementation validates:
+- private swap intent coordination,
+- atomic settlement conditions,
+- and selective disclosure flows.
 
-**Departments:**  
-`frontend`, `backend`, `integration`, `protocol`, `design`, `cto`, `research`
+Instead of exposing:
+- sender,
+- receiver,
+- routing path,
+- and execution logic,
 
-You can import the boards with:
-```bash
-gh project item-add --project "BitDMX Core" --body "$(cat .project/frontend.json)"
+BCYX coordinates swaps using:
+- commitments,
+- shielded coordination pools,
+- aggregated proof roots,
+- and batched settlement proofs.
 
-| Month     | Focus          | Deliverables                            |
-| --------- | -------------- | --------------------------------------- |
-| **1**     | Foundation     | Repo setup, AIR framework, branding     |
-| **2**     | STARK Engine   | Prover prototype, zkVM spec             |
-| **3**     | Bridge Alpha   | Taproot deposit contracts, UTXO tracker |
-| **4–6**   | zkVM + Testnet | Recursive STARKs, frontend explorer     |
-| **7–8**   | Optimization   | Performance tuning, audit planning      |
-| **9–10**  | SDK + APIs     | Developer tools, verifier incentives    |
-| **11–12** | Mainnet Launch | Public release, investor dashboard      |
-🧠 Development Setup
-Prerequisites
+---
 
-Rust ≥ 1.75
+# Architecture
 
-Node.js ≥ 20
+```txt
+Users / Treasuries
+        ↓
+Commitment Layer
+        ↓
+Shielded Coordination Pools
+        ↓
+Swap Coordination Engine
+        ↓
+Zero-Knowledge Proof Generation
+        ↓
+Accumulator / Batch Aggregation
+        ↓
+Settlement Verification
+        ↓
+Cross-Chain Execution
+```
 
-Bitcoin Core (Signet)
+---
 
-Docker (optional for local orchestration)
+# Core Components
 
-**Build Instructions
-**
-# Clone repository
-git clone https://github.com/satoshisbrideai/bitdmx-core.git
-cd bitdmx-core
+## Commitment Layer
 
-# Install dependencies
-cargo build
-npm install --prefix frontend
+Execution intents are represented as cryptographic commitments.
 
-# Run local node
-cargo run --bin bitdmx-node
+Commitments abstract:
+- ownership,
+- amounts,
+- routes,
+- counterparties,
+- and settlement metadata.
 
-🧪 Testnet Access
+Only proof-valid state transitions become publicly visible.
 
-Network: DMX Testnet 0.1
+---
 
-Bridge: tb1qd... (Taproot Signet address)
+## Shielded Coordination Pools
 
-Explorer: https://explorer.bitdmx.org
+BCYX coordinates swap intents inside shielded pools.
 
-🧭 Contributing
+The pools enable:
+- private matching,
+- confidential execution,
+- hidden transaction relationships,
+- and atomic coordination.
 
-Fork the repo
+---
 
-Create a feature branch
+## Swap Coordination Engine
 
-Submit a PR for review
+The coordination engine handles:
+- swap matching,
+- route coordination,
+- settlement synchronization,
+- proof generation triggers,
+- and disclosure conditions.
 
-Include test coverage and lint checks
+The engine is designed to remain:
+- modular,
+- chain-agnostic,
+- and extensible.
 
-Tag your issues with:
+---
 
-frontend, backend, protocol, integration, design, cto, or research
+## Zero-Knowledge Proof Layer
 
-👁️‍🗨️ Governance & Security
+BCYX uses Zero-Knowledge Proof systems to verify:
+- valid commitments,
+- swap correctness,
+- settlement integrity,
+- nullifier validity,
+- and execution consistency.
 
-Branching model: main (stable), dev (integration), feature/* (experimental)
+The system verifies correctness without exposing:
+- user balances,
+- ownership,
+- internal state,
+- or execution relationships.
 
-Audits: Coordinated by CTO and external partners (Month 8 milestone)
+---
 
-Security reports: security@bitdmx.org
+## Batch Proof Aggregation
 
-📰 Investor & Community Updates
+A core component of BCYX is proof aggregation through accumulators.
 
-Monthly investor newsletters summarize milestone progress:
+Instead of verifying transactions independently:
 
-Proof system maturity (protocol)
+```txt
+Tx1
+Tx2
+Tx3
+Tx4
+```
 
-Rollup node reliability (backend)
+BCYX compresses them into:
 
-Bridge audit readiness (integration)
+```txt
+Single Aggregated Proof
+```
 
-Design and branding updates (UX)
+This reduces:
+- verification overhead,
+- settlement costs,
+- synchronization complexity,
+- and on-chain verification load.
 
-Financial runway and contributors (management)
+---
 
-Subscribe at bitdmx.org/newsletter
-.
+# Accumulator Model
 
-📜 License
+BCYX maintains accumulators for:
+- commitments,
+- nullifiers,
+- settlement proofs,
+- execution state,
+- and cross-chain coordination.
 
-MIT License © 2025 Satoshi’s Bride AI Labs
+Example:
 
-⚡ BitDMX — Scaling Bitcoin with transparent zero-knowledge.
+```txt
+Commitments
+    ↓
+Merkle / Accumulator Root
+    ↓
+Aggregated Batch Proof
+    ↓
+Settlement Verification
+```
+
+---
+
+# Pilot Goals
+
+The pilot validates:
+
+- commitment-based coordination,
+- private swap orchestration,
+- shielded execution flows,
+- aggregated proof systems,
+- accumulator synchronization,
+- selective disclosure primitives,
+- and modular settlement architecture.
+
+---
+
+# Target Properties
+
+## Privacy-by-Default
+
+Ownership and execution remain shielded unless explicitly disclosed.
+
+---
+
+## Atomic Coordination
+
+Settlement succeeds completely or reverts safely.
+
+---
+
+## Modular Verification
+
+The protocol supports multiple verification backends and settlement environments.
+
+---
+
+## Aggregated Scalability
+
+Large execution sets compress into minimal verification footprints.
+
+---
+
+## Chain-Agnostic Coordination
+
+BCYX is designed to coordinate heterogeneous systems rather than depend on a single execution environment.
+
+---
+
+# Potential Future Use Cases
+
+The pilot focuses on swaps first, but the architecture is intended to extend toward:
+
+- confidential treasury coordination,
+- institutional settlement,
+- private interoperability,
+- oracle coordination,
+- proof markets,
+- yield coordination systems,
+- and selective-disclosure financial infrastructure.
+
+---
+
+# Repository Goals
+
+This repository serves as:
+- pilot implementation,
+- architecture exploration,
+- proof coordination prototype,
+- and interoperability research environment.
+
+The focus is experimentation and validation of:
+- settlement coordination primitives,
+- proof aggregation,
+- and shielded synchronization systems.
+
+---
+
+# Development Areas
+
+## Phase 1 — Swap Coordination Pilot
+- commitment engine
+- shielded swap flows
+- proof batching
+- accumulator synchronization
+- atomic coordination logic
+
+## Phase 2 — Verification Expansion
+- aggregated proof validation
+- multi-settlement coordination
+- oracle attestation flows
+- modular disclosure rules
+
+## Phase 3 — Extended Coordination
+- generalized coordination layer
+- private treasury flows
+- confidential interoperability
+- programmable settlement systems
+
+---
+
+# Design Principles
+
+- Privacy-first
+- Verification-oriented
+- Bitcoin-aligned
+- Modular
+- Chain-agnostic
+- Coordination-centric
+- Proof-native
+
+---
+
+# Status
+
+Pilot / Research Phase
+
+The current implementation focuses on validating:
+- swap coordination,
+- shielded execution,
+- and proof aggregation infrastructure.
+
+---
+
+# Disclaimer
+
+BCYX is experimental software under active research and development.
+
+This repository is not production-ready and should not be used with real funds.
+
+---
+
+# Tagline
+
+```txt
+Cold Storage.
+Hot Coordination.
+Zero Compromise.
+```
